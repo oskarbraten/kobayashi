@@ -1,0 +1,20 @@
+{
+  "name": "kobayashi",
+  "description": "Lightweight Mustache shim for node.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": "Oskar Elias Braten"
+  },
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "mustache": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oskarbraten/kobayashi.git"
+  }
+}
