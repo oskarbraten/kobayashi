@@ -8,31 +8,84 @@ Kobayashi requires a nodejs version that supports [Promise](https://developer.mo
 npm install kobayashi
 ```
 
-## Usage
+## Quick start
 
 ```js
+const Kobayashi = require('kobayashi');
 
-let ky = require('kobayashi');
+let file = Kobayashi.load('./index.html'); // returns a promise, which is later resolved in the render function.
+let partial1 = Kobayashi.load('./partial1.html');
+let layout = Kobayashi.load('./layout.html');
 
-ky.render('<h1>Hello {{world}}</h1>', { world: 'world' }).then(({ result }) => {
-    console.log('Result: ', result);
-}).catch((error) => {
-    console.log('Ops, there was an error: ', error);
+Kobayashi.render(file, { hello: 'world'}, { partial1, partial2: 'Hello.' }, layout).then(result => {
+    console.log(result);
+}).catch(error => {
+    console.log(error);
 });
+```
 
-ky.render(ky.load('./index.html'), { stuff: 'yes' }).then(({ result }) => {
-    console.log('Result: ', result);
-}).catch((error) => {
-    console.log('Ops, there was an error: ', error);
+## Documentation
+
+### async render(template, view = {}, partials = {}, layout)
+Renders the specified template with view and partials.
+
+Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) which resolves with the resulting rendering.
+
+#### Parameters:
+ * `template` : String or Promise
+ * `view` : Object
+ * `partials` : Object with Strings or Promises
+ * `layout` : String or Promise
+
+#### Example:
+```js
+let file = Kobayashi.load('./index.html'); // returns a promise, which is later resolved in the render function.
+let partial1 = Kobayashi.load('./partial1.html');
+let layout = Kobayashi.load('./layout.html');
+
+Kobayashi.render(file, { hello: 'world'}, { partial1, partial2: 'Hello.' }, layout).then(result => {
+    console.log(result);
+}).catch(error => {
+    console.log(error);
 });
+```
 
-ky.render(ky.load('./index.html'), { stuff: 'yes' })
-    .then(({ layout }) => layout('<body>{{{body}}}</body>'))
-    .then(result => {
-        console.log(result);
-    }).catch((error) => {
-    console.log('Ops, there was an error: ', error);
+### load(path)
+Loads file from specified path.
+
+Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) which resolves with the content of the file.
+
+#### Example:
+```js
+let file = Kobayashi.load('./index.html'); // returns a promise, which is later resolved in the render function.
+
+Kobayashi.render(file, { hello: 'world'}).then(result => {
+    console.log(result);
+}).catch(error => {
+    console.log(error);
 });
+```
 
+### async inject(source, destination, tag)
+Injects the source template into a destination template at the specified tag.
+
+Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) which resolves with the resulting rendering.
+
+#### Parameters:
+ * `source` : String or Promise
+ * `destionation` : String or Promise
+ * `tag` : String
+
+#### Example:
+```js
+let source = '<h1>Hello world!</h1>';
+let destination = '<body>{{test}}<div>{{wow}}</div></body>';
+
+Kobayashi.inject(source, destination, 'test').then(result => {
+    console.log(result);
+    // logs: <body><h1>Hello world!</h1><div>{{wow}}</div></body>.
+}).catch(error => {
+    console.log(error);
+});
 
 ```
