@@ -1,25 +1,21 @@
 'use strict';
 
-let ky = require('../index.js');
+let Kobayashi = require('../index.js');
+
+let index = Kobayashi.load('./index.html');
+let layout = Kobayashi.load('./layout.html');
+
 
 let view = {
     world: "you"
 };
 
-ky.render(ky.load('./index.html'), view).then(({ template, result, layout }) => {
+async function test() {
+    let results = await Kobayashi.render(index, view, {}, layout);
+    let injection_test = await Kobayashi.inject(index, layout, 'body');
 
-    console.log('Template: ', template, ' + ');
-    console.log('View: ', view, ' = ');
-    console.log('Result: ', result);
+    console.log('Render results: ', results);
+    console.log('Injection results: ', injection_test);
+}
 
-    return layout(ky.load('./layout.html'));
-
-}).then((final) => {
-
-    console.log('Rendered with layout: ', final);
-
-}).catch((error) => {
-
-    console.log('Ops, there was an error: ', error);
-
-});
+test();
