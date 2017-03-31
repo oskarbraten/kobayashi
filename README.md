@@ -1,6 +1,6 @@
 # Kobayashi
 
-> Lightweight Mustache shim for node.
+Kobayashi is an asynchronous wrapper for Mustache.js. Adding support for loading files and using layouts.
 
 Kobayashi requires a nodejs version that supports [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) & [async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)).
 
@@ -27,7 +27,7 @@ Kobayashi.render(file, { hello: 'world'}, { partial1, partial2: 'Hello.' }, layo
 ## Documentation
 
 ### async render(template, view = {}, partials = {}, layout)
-Renders the specified template with view and partials.
+Renders the template with the view. You can also supply partials and layout. When rendering with a layout the {{{body}}}-tag is the insertion point, and thus a reserved tag.
 
 Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) which resolves with the resulting rendering.
 
@@ -36,6 +36,8 @@ Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
  * `view` : Object
  * `partials` : Object with Strings or Promises
  * `layout` : String or Promise
+
+
 
 #### Example:
 ```js
