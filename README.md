@@ -73,7 +73,7 @@ Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 #### Parameters:
  * `source` : String or Promise
- * `destionation` : String or Promise
+ * `destination` : String or Promise
  * `tag` : String
 
 #### Example:
