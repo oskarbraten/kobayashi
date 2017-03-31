@@ -1,37 +1,37 @@
 {
-    "name": "kobayashi",
-    "description": "Asynchronous wrapper for Mustache.js",
-    "version": "1.0.0",
-    "main": "index.js",
-    "author": {
-        "name": "Oskar Elias Braten"
-    },
-    "scripts": {
-        "test": "node ./test/test.js"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "mustache": "^2.3.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/oskarbraten/kobayashi.git"
-    },
-    "keywords": [
-        "asynchronous",
-        "lightweight",
-        "Mustache.js",
-        "mustache",
-        "template",
-        "templating",
-        "minimalist",
-        "small",
-        "modern",
-        "promises",
-        "async",
-        "await"
-    ],
-    "bugs": {
-        "url": "https://github.com/oskarbraten/kobayashi/issues"
-    }
+  "name": "kobayashi",
+  "description": "Asynchronous wrapper for Mustache.js",
+  "version": "1.0.1",
+  "main": "index.js",
+  "author": {
+    "name": "Oskar Elias Braten"
+  },
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "mustache": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oskarbraten/kobayashi.git"
+  },
+  "keywords": [
+    "asynchronous",
+    "lightweight",
+    "Mustache.js",
+    "mustache",
+    "template",
+    "templating",
+    "minimalist",
+    "small",
+    "modern",
+    "promises",
+    "async",
+    "await"
+  ],
+  "bugs": {
+    "url": "https://github.com/oskarbraten/kobayashi/issues"
+  }
 }
