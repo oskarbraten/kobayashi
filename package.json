@@ -7,7 +7,7 @@
     "name": "Oskar Elias Braten"
   },
   "scripts": {
-    "test": "node ./test/test.js"
+    "test": "cd ./test && node ./test.js"
   },
   "license": "MIT",
   "dependencies": {
