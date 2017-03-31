@@ -71,7 +71,7 @@ Kobayashi.render(file, { hello: 'world'}).then(result => {
 ### async inject(source, destination, tag)
 Injects the source template into a destination template at the specified tag.
 
-Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) which resolves with the resulting rendering.
+Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) which resolves with the resulting template.
 
 #### Parameters:
  * `source` : String or Promise
